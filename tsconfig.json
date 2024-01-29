@@ -12,13 +12,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-   
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
       "@/*": ["./*"]
     }
   },
-  //"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/auth.tsdposts/index.js", "dashbord/index.js", "app/pages/dashbord/index.js", "app/dashbord/index.js", "lib/db.js"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/auth.tsdposts/index.ts", "dashbord/index.ts", "app/pages/dashbord/index.ts", "app/dashbord/index.ts", "lib/db.ts"],
-
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/auth.tsdposts/index.js", "app/pages/dashbord/index.js", "app/dashbord/index.js", "lib/db.js"],
   "exclude": ["node_modules"]
 }
