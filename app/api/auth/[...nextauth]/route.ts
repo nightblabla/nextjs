@@ -6,7 +6,7 @@ const handler = NextAuth(authOptions)
 
 // export const GET = (req: NextApiRequest, res: NextApiResponse) => handler(req, res);
 // export const POST = (req: NextApiRequest, res: NextApiResponse) => handler(req, res);
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export const otherHandler =async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'GET' || req.method === 'POST') {
       await handler(req, res);
     } else {
