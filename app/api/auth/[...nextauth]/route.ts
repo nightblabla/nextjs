@@ -4,9 +4,7 @@ import NextAuth from "next-auth"
 
 const handler = NextAuth(authOptions)
 
-// export const GET = (req: NextApiRequest, res: NextApiResponse) => handler(req, res);
-// export const POST = (req: NextApiRequest, res: NextApiResponse) => handler(req, res);
-export const yourApiRouteHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const yourApiRouteHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       if (req.method === 'GET' || req.method === 'POST') {
         await handler(req, res);
@@ -19,3 +17,5 @@ export const yourApiRouteHandler = async (req: NextApiRequest, res: NextApiRespo
       res.status(500).json({ error: 'Internal Server Error' });
     }
   };
+  
+  export default yourApiRouteHandler;
