@@ -1,77 +1,4 @@
 
-// // // import conn from '../../../lib/db'
-
-// // // export default async function   POST(req, res) {
-    
-// // //     try {
-// // //         console.log("req nom", req.body)
-// // //         const query = 'INSERT INTO posts(content) VALUES($1)'
-// // //         const values = [req.body.content]
-// // //       const result = await conn.query(
-// // //           query,
-// // //           values
-// // //       );
-// // //       console.log( "ttt",result );
-// // //   } catch ( error ) {
-// // //       console.log( error );
-// // //   }
-  
-  
-// // // };
-// // import { handlePost } from './handler';  // Import the handler function
-// // import conn from '../../../lib/db'
-// // export function GET(req, res) {
-// //   // Handle GET method
-// //   res.status(200).json({ message: 'GET request handled' });
-// // }
-
-// // export async function POST(req, res) {
-// //   // Handle POST method
-// //   try {
-// //     console.log("req nom", req.body)
-// //     const query = 'INSERT INTO posts(content) VALUES($1)'
-// //     const values = [req.body.content]
-// //     const result = await conn.query(
-// //         query,
-// //         values
-// //     );
-// //     console.log( "ttt", result );
-// //     res.status(200).json({ message: 'Post request handled successfully' });
-// // } catch (error) {
-// //     console.log(error);
-// //     res.status(500).json({ error: 'Internal Server Error' });
-// // }
-// // }
-// import { Console } from 'console';
-// import conn from '../../../lib/db';
-
-// export async function POST(req, res) {
-//     try {
-        
-//         console.log("req nom", req.body);
-
-//         // Assuming 'users' is the table name with columns: email, username, password, id
-//         const query = 'INSERT INTO users(email, user_name, password) VALUES($1, $2, $3) RETURNING id';
-//         console.log("this is the search",req.body.email, req.body.username, req.body.password)
-//         const values = [req.body.email, req.body.username, req.body.password];
-//         console.log("values is",values);
-
-//         const result = await conn.query(query, values);
-
-//         console.log("ttt", result);
-
-//         // Assuming the 'id' is returned by the query and you want to include it in the response
-//         //res.status(200).json({ message: 'Post request handled successfully', userId: result.rows[0].id });
-//     } catch (error) {
-//         console.error(error);
-
-//         // Check if res object is still valid before using it
-//         if (!res.writableEnded) {
-//            // res.status(500).json({ error: 'Internal Server Error' });
-//             console.log(res.message);
-//         }
-//     }
-// }
 import { NextResponse } from 'next/server';
 import conn from '../../../lib/db';
 //import express from 'express';
@@ -112,9 +39,8 @@ export async function POST(req, res) {
 
         console.log("ttt", result);
 
-        // Assuming the 'id' is returned by the query and you want to include it in the response
-        // res.status(200).json({ message: 'Post request handled successfully', userId: result.rows[0].id });
-        return NextResponse.json({ message: 'Post request handled successfully', userId: result.rows[0].id },{status:200});
+        
+        return NextResponse.json({ message: 'Registered successfully', userId: result.rows[0].id },{status:200});
     } catch (error) {
         console.error(error);
 
